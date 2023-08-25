@@ -1,0 +1,76 @@
+# Maximun intrest rate allowed
+MAX_INTEREST = 100/12
+
+class ExcesiveInterestException( Exception ): 
+    """ 
+    Custom exception for interest rates above maximun
+
+    Exepcion personalizada para indicar que una tasa de interes supera
+    el tope máximo
+
+    """
+    def __init__( self, interest ):
+        """
+        To raise this exception, pass the intrest rate used as parameter to constructor
+
+        Para usar esta excepción, debe llamar al constructor indicando la tasa usada
+        """
+        super().__init__( f"Invalid interest rate {interest} maximun allowed is {MAX_INTEREST}" )
+
+class CreditCardCalculator:
+    """
+    Class for financial operations for a Credit Card
+
+    Clase para realizar operaciones financieras para una tarjeta de crédito
+    """
+
+    def calcPayment(amount : float,interest : float, periods : int):
+        """
+        Calculates the monthly payment for a purchase amount with a interest rate
+        in a number of periods
+
+        Calcula la cuota a pagar por una compra con una tarjeta de crédito
+
+        Parameters
+        ----------
+
+        amount : float
+            Purchase amount / Valor de la compra
+        interest : float
+            Monthly interest rate for purchase. Must be zero or positive less than
+            MAX_INTEREST_RATE / Tasa maxima de interes, valor positivo menor que MAX_INTEREST_RATE          
+        periods : int
+            Number of monthly payments / Numero de cuotas a diferir la compra
+
+        Returns
+        -------
+        payment : float
+            Monthly payment calculated. Not rounded / Pago mensual calculado. El resultado no esta redondeado
+        """
+
+        if interest > MAX_INTEREST :
+            """ 
+            If interest rate is above MAX_INTEREST_RATE raises ExcesiveInterestException
+            Si la tasa es mayor que MAX_INTEREST_RATE, arroja una excepcion ExcesiveInterestException """
+            raise ExcesiveInterestException( interest )
+
+        if periods == 1 :
+            """ 
+            If periods equals one, no interests are calculated
+
+            Cuando el plazo sea una sola cuota, no se aplican intereses 
+            """
+            return amount
+
+        """ La tasa de interés está expresada como un entero entre 1 y 100 """
+        i =  interest / 100
+    
+        if interest == 0:
+            """ 
+            Cuando la tasa sea cero, la cuota es la compra dividida las cuotas
+            para evitar error de division por cero 
+            """
+            return amount / periods
+        else:         
+            return (amount * i) / (1 - (1 + i) ** (-periods))
+
