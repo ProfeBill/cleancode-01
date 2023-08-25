@@ -1,4 +1,4 @@
-# Proyecto Ejemplo de la Estructura de un poryecto Python con practicas de Clean Code
+# Proyecto Ejemplo de la Estructura de un proyecto Python con practicas de Clean Code
 
 ## Estructura sugerida
 
