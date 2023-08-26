@@ -46,13 +46,19 @@ class CreditCardCalculator:
         -------
         payment : float
             Monthly payment calculated. Not rounded / Pago mensual calculado. El resultado no esta redondeado
-        """
+        
+        Raises
+        ------
+        ExcesiveInterestException
+            When interest rate is above the valu defined in  MAX_INTEREST_RATE
 
-        if interest > MAX_INTEREST :
-            """ 
-            If interest rate is above MAX_INTEREST_RATE raises ExcesiveInterestException
-            Si la tasa es mayor que MAX_INTEREST_RATE, arroja una excepcion ExcesiveInterestException """
-            raise ExcesiveInterestException( interest )
+        
+        """
+        
+        # Para efectos de calcular el rendimiento se guarda la hora actual en esta variable
+        execution_time = 0
+
+        CreditCardCalculator.checkInterest(interest)
 
         if periods == 1 :
             """ 
@@ -70,7 +76,18 @@ class CreditCardCalculator:
             Cuando la tasa sea cero, la cuota es la compra dividida las cuotas
             para evitar error de division por cero 
             """
-            return amount / periods
+            return amount / periods  # Divide el monto por la cantidad de cuotas
+                                     # Retorna el interes a pagar
         else:         
             return (amount * i) / (1 - (1 + i) ** (-periods))
+
+    def checkInterest(interest):
+        """ 
+        Verifica que la tasa de interés no supere la maxima permitida
+        """
+        if interest > MAX_INTEREST :
+            """ 
+            If interest rate is above MAX_INTEREST_RATE raises ExcesiveInterestException
+            Si la tasa es mayor que MAX_INTEREST_RATE, arroja una excepcion ExcesiveInterestException """
+            raise ExcesiveInterestException( interest )
 
