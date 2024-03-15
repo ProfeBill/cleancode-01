@@ -39,10 +39,13 @@ reconozca la carpeta como un Módulo y pueda hacer import
 
 Para ejecutar las pruebas unitarias, desde la carpeta src, use el comando
 
+`
   cleancode-01\src> python -m unittest discover ..\tests -p '*test*.py'
-
+`
 Para poder ejecutarlas desde la carpeta raiz, debe indicar la ruta de busqueda donde se encuentran los
 módulos, incluyendo las siguientes lineas al inicio del módulo de pruebas
 
-import sys
-sys.path.append("src")
+`
+  import sys
+  sys.path.append("src")
+`
