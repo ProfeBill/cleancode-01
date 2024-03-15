@@ -5,7 +5,7 @@ class ExcesiveInterestException( Exception ):
     """ 
     Custom exception for interest rates above maximun
 
-    Exepcion personalizada para indicar que una tasa de interes supera
+    Excepcion personalizada para indicar que una tasa de interes supera
     el tope máximo
 
     """

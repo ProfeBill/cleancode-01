@@ -1,5 +1,10 @@
 # Todas las prueba sunitarias importan la biblioteca unittest
 import unittest
+
+# Lo importamos para poder incluir la ruta de busqueda python
+import sys
+sys.path.append("src")
+
 # Las pruebas importan los modulos que hacen el trabajo
 from CreditCard.CreditCardCalculator import CreditCardCalculator, ExcesiveInterestException
 
