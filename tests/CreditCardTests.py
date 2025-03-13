@@ -1,3 +1,6 @@
+import sys
+sys.path.append("src")
+
 # Todas las prueba sunitarias importan la biblioteca unittest
 import unittest
 # Las pruebas importan los modulos que hacen el trabajo

@@ -20,6 +20,14 @@ Describir el propósito del proyecto
 - Prerrequisitos: que se debe hacer o tener antes de poder correr este proyecto
 - Ejecución: como hacemos correr el programa, POR FUERA DEL ENTORNO DE DESARROLLO
 
+Ejemplo:
+
+Ubicados en la carpeta raiz del proyecto, ejecute:
+
+```
+py tests\CreditCardTests.py
+```
+
 ## ¿Cómo está hecho?
 
 Describir la arquitectura del proyecto, bibliotecas usadas, dependencias de otros proyectos
