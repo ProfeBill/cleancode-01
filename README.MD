@@ -25,7 +25,7 @@ Ejemplo:
 Ubicados en la carpeta raiz del proyecto, ejecute:
 
 ```
-py tests\CreditCardTests.py
+py src\Console\CreditCardConsole.py
 ```
 
 ## ¿Cómo está hecho?
@@ -45,10 +45,10 @@ reconozca la carpeta como un Módulo y pueda hacer import
 
 ## Uso
 
-Para ejecutar las pruebas unitarias, desde la carpeta src, use el comando
+Para ejecutar las pruebas unitarias, desde la carpeta raiz, use el comando
 
 `
-  cleancode-01\src> python -m unittest discover ..\tests -p '*test*.py'
+  py tests\CreditCardTests.py
 `
 Para poder ejecutarlas desde la carpeta raiz, debe indicar la ruta de busqueda donde se encuentran los
 módulos, incluyendo las siguientes lineas al inicio del módulo de pruebas
