@@ -1,5 +1,7 @@
 # Proyecto Ejemplo de la Estructura de un proyecto Python con practicas de Clean Code
 
+Este proyecto se modificó en un fork por BillVelasquez
+
 El archivo README.MD es el lugar donde los usuariso de un proyecto van a buscar las respuestas
 a las preguntas que se hacen antes de poder comenzar a usarlo.
 
