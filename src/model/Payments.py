@@ -38,11 +38,11 @@ class InvalidumberOfPaymentsException( Exception ):
 class CreditCardCalculator:
     """
     Class for financial operations for a Credit Card
-
+    
     Clase para realizar operaciones financieras para una tarjeta de crédito
     """
 
-    def calcPayment(amount : float,interest : float, number_of_payments : int):
+    def calculate_payment(amount : float,interest : float, number_of_payments : int):
         """
         Calculates the monthly payment for a purchase amount with a interest rate
         in a number of periods
@@ -76,11 +76,11 @@ class CreditCardCalculator:
         # Para efectos de calcular el rendimiento se guarda la hora actual en esta variable
         execution_time = 0
 
-        CreditCardCalculator.checkInterest(interest)
+        CreditCardCalculator.check_interest(interest)
 
-        CreditCardCalculator.CheckPayments(number_of_payments)
+        CreditCardCalculator.check_payments(number_of_payments)
 
-        CreditCardCalculator.CheckAmount(amount)
+        CreditCardCalculator.check_amount(amount)
 
         if number_of_payments == 1 :
             """ 
@@ -103,15 +103,15 @@ class CreditCardCalculator:
         else:         
             return (amount * i) / (1 - (1 + i) ** (-number_of_payments))
 
-    def CheckAmount(amount):
+    def check_amount(amount):
         if amount <= 0 :
             raise InvalidPurchaseException()
 
-    def CheckPayments(periods):
+    def check_payments(periods):
         if periods <= 0 :
             raise InvalidumberOfPaymentsException()
 
-    def checkInterest(interest):
+    def check_interest(interest):
         """ 
         Verifica que la tasa de interés no supere la maxima permitida
         """

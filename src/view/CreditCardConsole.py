@@ -5,7 +5,7 @@ Interfaz de Usuario tipo consola para la funcionalidad de calcular la cuota de t
 """
 import sys
 sys.path.append("src")
-from model import Payments
+from model.payments import CreditCardCalculator
 
 #  Obtener los datos de entrada
 purchase_amount = float( input( "Ingrese el valor la compra: ") )
@@ -14,7 +14,7 @@ interest_rate = float( input( "Ingrese la tasa de interés: ") ) / 100
 
 try:
     #  Realizar el proceso
-    payment = Payments.CreditCardCalculator.calcPayment( purchase_amount, interest_rate, num_payments )
+    payment = CreditCardCalculator.calculate_payment( purchase_amount, interest_rate, num_payments )
 
     # Mostrar los datos de salida
     print( f"El valor de la cuota es: {payment}" )
