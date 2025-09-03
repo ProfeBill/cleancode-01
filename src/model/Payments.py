@@ -1,5 +1,5 @@
 # Maximun intrest rate allowed
-MAX_INTEREST = 100/12
+MAX_INTEREST = 48 / 12 # 48% anual
 
 class ExcesiveInterestException( Exception ): 
     """ 

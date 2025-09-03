@@ -4,7 +4,7 @@ sys.path.append("src")
 # Todas las prueba sunitarias importan la biblioteca unittest
 import unittest
 # Las pruebas importan los modulos que hacen el trabajo
-from CreditCard.Payments import CreditCardCalculator, ExcesiveInterestException
+from model.Payments import CreditCardCalculator, ExcesiveInterestException
 
 # Debe existir por lo menos una clase que contenga las pruyebas unitarias
 # descediente de unittest.TestCase
