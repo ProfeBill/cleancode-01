@@ -27,7 +27,7 @@ Ejemplo:
 Ubicados en la carpeta raiz del proyecto, ejecute:
 
 ```
-py src\Console\CreditCardConsole.py
+py src/view/CreditCardConsole.py
 ```
 
 ## ¿Cómo está hecho?
@@ -59,3 +59,4 @@ módulos, incluyendo las siguientes lineas al inicio del módulo de pruebas
   import sys
   sys.path.append("src")
 `
+
