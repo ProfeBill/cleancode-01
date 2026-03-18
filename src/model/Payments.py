@@ -34,6 +34,18 @@ class InvalidumberOfPaymentsException( Exception ):
     def __init__( self ):
         super().__init__( f"Number of payments must be greater than zero" )
 
+class Purchase():
+    """ Representa una compra realizada con la tarjeta de crédito """
+    amount : float
+    interest : float
+    number_of_payments : int
+
+    def __init__(self, amount, interest, number_of_payments):
+        self.amount = amount
+        self.interest = interest
+        self.number_of_payments = number_of_payments
+        
+
 
 class CreditCardCalculator:
     """
@@ -42,7 +54,7 @@ class CreditCardCalculator:
     Clase para realizar operaciones financieras para una tarjeta de crédito
     """
 
-    def calculate_payment(amount : float,interest : float, number_of_payments : int):
+    def calculate_payment( purchase : Purchase ):
         """
         Calculates the monthly payment for a purchase amount with a interest rate
         in a number of periods
@@ -76,32 +88,32 @@ class CreditCardCalculator:
         # Para efectos de calcular el rendimiento se guarda la hora actual en esta variable
         execution_time = 0
 
-        CreditCardCalculator.check_interest(interest)
+        CreditCardCalculator.check_interest(purchase.interest)
 
-        CreditCardCalculator.check_payments(number_of_payments)
+        CreditCardCalculator.check_payments(purchase.number_of_payments)
 
-        CreditCardCalculator.check_amount(amount)
+        CreditCardCalculator.check_amount(purchase.amount)
 
-        if number_of_payments == 1 :
+        if purchase.number_of_payments == 1 :
             """ 
             If periods equals one, no interests are calculated
 
             Cuando el plazo sea una sola cuota, no se aplican intereses 
             """
-            return amount
+            return purchase.amount
 
         """ La tasa de interés está expresada como un entero entre 1 y 100 """
-        i =  interest / 100
+        i =  purchase.interest / 100
     
-        if interest == 0:
+        if purchase.interest == 0:
             """ 
             Cuando la tasa sea cero, la cuota es la compra dividida las cuotas
             para evitar error de division por cero 
             """
-            return amount / number_of_payments  # Divide el monto por la cantidad de cuotas
+            return purchase.amount / purchase.number_of_payments  # Divide el monto por la cantidad de cuotas
                                      # Retorna el interes a pagar
         else:         
-            return (amount * i) / (1 - (1 + i) ** (-number_of_payments))
+            return (purchase.amount * i) / (1 - (1 + i) ** (-purchase.number_of_payments))
 
     def check_amount(amount):
         if amount <= 0 :
